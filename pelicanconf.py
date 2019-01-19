@@ -33,3 +33,10 @@ DEFAULT_PAGINATION = 12
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+PLUGIN_PATHS = ['plugin'] 
+PLUGINS = ['tipue_search']
+
+DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'authors', 'archives', 'search'))
+
+THEME = 'templates'
