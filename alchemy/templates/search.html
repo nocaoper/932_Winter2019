@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} Search {% endblock %}
+{% block content %}
+
+<div class="entry-content">
+<script>
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch({
+            'show': 8,
+            'mode': 'json',
+            'contentLocation': '{{ SITEURL }}/tipuesearch_content.json'
+        });
+    });
+</script>
+<div id="tipue_search_content">
+    <div id="tipue_search_loading"></div>
+</div>
+</div>
+{% endblock %}

@@ -39,4 +39,4 @@ PLUGINS = ['tipue_search']
 
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'authors', 'archives', 'search'))
 
-THEME = 'templates'
+THEME = 'alchemy'
