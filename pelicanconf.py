@@ -40,3 +40,5 @@ PLUGINS = ['tipue_search']
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'authors', 'archives', 'search'))
 
 THEME = 'alchemy'
+
+DISQUS_SITENAME = 'winter2019-hiver2019'
