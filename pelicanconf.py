@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Jean Hsu'
 SITENAME = u'Winter2019-Hiver2019'
-SITEURL = 'https://nocaoper.github.io/932_Winter2019/'
+SITEURL = 'https://nocaoper.github.io/932_Winter2019'
 
 PATH = 'content'
 
