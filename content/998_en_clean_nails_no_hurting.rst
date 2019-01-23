@@ -9,10 +9,8 @@ Clean nails without hurting yourself
 :authors: Yu-Chiang Hsu
 :summary: clean nails without hurting yourself
 
+The tip is simple. When you clean the dirt between your nails you have to use your cleaning tool against the nail (vertically). If you use it horizontally then you are damaging your fingers.
+
 .. raw:: html
 
-  <div>
-    The tip is simple. When you clean the dirt between your nails you have to use your cleaning tool against the nail (vertically). If you use it horizontally then you are damaging your fingers.
-
-    <img src='theme/img/998_ongles/nailsOuch.svg' style='width: 300px;'>
-  </div>
+  <img src='theme/img/998_ongles/nailsOuch.svg' style='width: 300px;'>
