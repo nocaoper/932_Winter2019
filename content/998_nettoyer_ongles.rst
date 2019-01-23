@@ -14,5 +14,5 @@ Nettoyer ongles sans se faire mal
   <div>
     Le truc est simple, lorsque vous nettoyez les salet&eacute;s entre vos ongles il faut percer l'aiguille ou l'outil contre l'ongle de mani&egrave;re verticale et non horizontalement contre la chair.<br/>
 
-    <img src='theme/img/998_ongles/nailsOuch.png'>
+    <img src='theme/img/998_ongles/nailsOuch.svg'>
   </div>
