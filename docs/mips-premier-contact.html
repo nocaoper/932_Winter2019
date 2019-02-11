@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Mon début avec MIPS | Winter2019-Hiver2019
+</title>
+  <link rel="canonical" href="https://nocaoper.github.io/932_Winter2019/mips-premier-contact.html">
+
+
+  <link rel="stylesheet" href="https://nocaoper.github.io/932_Winter2019/theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://nocaoper.github.io/932_Winter2019/theme/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://nocaoper.github.io/932_Winter2019/theme/css/pygments/default.min.css">
+  <link rel="stylesheet" href="https://nocaoper.github.io/932_Winter2019/theme/css/theme.css">
+
+  <link rel="stylesheet" href="https://nocaoper.github.io/932_Winter2019/theme/tipuesearch/normalize.min.css">
+	<link rel="stylesheet" href="https://nocaoper.github.io/932_Winter2019/theme/tipuesearch/tipuesearch.css">
+	<script type="text/javascript" src="https://nocaoper.github.io/932_Winter2019/theme/js/jquery.min.js"></script>
+	<script type="text/javascript" src="https://nocaoper.github.io/932_Winter2019/tipuesearch_content.js"></script>
+	<script type="text/javascript" src="https://nocaoper.github.io/932_Winter2019/theme/tipuesearch/tipuesearch_set.js"></script>
+	<script type="text/javascript" src="https://nocaoper.github.io/932_Winter2019/theme/tipuesearch/tipuesearch.min.js"></script>
+
+  
+  <meta name="description" content="ma première installation de mips">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="title"><a href="https://nocaoper.github.io/932_Winter2019/">Winter2019-Hiver2019</a></h1>
+    <form action="https://nocaoper.github.io/932_Winter2019/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+      <input id="tipue_search_input" type="text" name="q" placeholder="Search">
+    </form>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Mon début avec MIPS
+</h1>
+      <a href='https://nocaoper.github.io/932_Winter2019/license.html'>License/Licence</a>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2019-02-10T16:52:00-05:00">
+          <i class="fa fa-clock-o"></i>
+          Sun 10 February 2019
+        </li>
+        <li class="list-inline-item">
+          <i class="fa fa-folder-open-o"></i>
+          <a href="https://nocaoper.github.io/932_Winter2019/category/uqam.html">uqam</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fa fa-user-o"></i>
+              <a href="https://nocaoper.github.io/932_Winter2019/author/yu-chiang-hsu.html">Yu-Chiang Hsu</a>          </li>
+          <li class="list-inline-item">
+            <i class="fa fa-files-o"></i>
+              <a href="https://nocaoper.github.io/932_Winter2019/tag/os3.html">#os3</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <div class="section" id="but-initial">
+<h2>But initial</h2>
+<p>Mon but initial est d'utiliser la ligne de commande pour compiler et exécuter des programmes mips. En effet, il n'est pas très facile d'utiliser vim par l'insterface graphique du gui <a class="reference external" href="http://courses.missouristate.edu/KenVollmar/mars/">Mars</a>.</p>
+<p>Le plan est simple:</p>
+<ol class="arabic simple">
+<li>Installer mips sur ubuntu (s'appelle SIPS)</li>
+<li>Trouver un tutoriel sur youtube</li>
+<li>Exécuter le programme simultanément sur les deux platforms SIPS (ligne de commande) et Mars (gui)</li>
+</ol>
+</div>
+<div class="section" id="installation-sur-ubuntu">
+<h2>Installation sur ubuntu</h2>
+<p>basé sur ce site: <a class="reference external" href="https://askubuntu.com/questions/367168/getting-spim-mips-compiler-on-ubuntu-12-04">https://askubuntu.com/questions/367168/getting-spim-mips-compiler-on-ubuntu-12-04</a></p>
+<p>pour installer sur ubuntu il suffit de:
+sudo apt-get install spim</p>
+</div>
+<div class="section" id="rouler-premier-script">
+<h2>Rouler premier script</h2>
+<p>basé sur cette video: <a class="reference external" href="https://www.youtube.com/watch?v=-BUJXKsqcoI">https://www.youtube.com/watch?v=-BUJXKsqcoI</a>
+titre vidéo: Spim run script demo,
+par: Gego/XAREN</p>
+<dl class="docutils">
+<dt>run.sh::</dt>
+<dd><p class="first">#!/bin/bash</p>
+<p>###
+#Just run a .asm file in spim with the correct settings.
+###</p>
+<p class="last">spim -delayed_branches -delayed_loads -quiet -file $1</p>
+</dd>
+</dl>
+<p>Pour donner les permission d'exécution
+chmod u+x run.sh</p>
+<p>hello.asm:</p>
+<pre class="literal-block">
+.data
+  hw: .asciiz &quot;Hello World!\n&quot;
+
+.text
+main:
+  la $a0,hw
+  li $v0,4
+  syscall
+
+  li $v0, 10
+  syscall
+</pre>
+<p>Pour rouler hello.asm:
+./run.sh hello.asm</p>
+<p>Fichier qui lit et recrache ce qui a été lu.
+read.asm:</p>
+<pre class="literal-block">
+#begin code
+  .data
+
+i_str_input:
+.word 4
+
+o_str_ask_input:
+  .asciiz: &quot;Enter a string: &quot;
+
+o_str_tell_input:
+  .asciiz: &quot;The input was: &quot;
+
+o_str_newline:
+  .asciiz: &quot;\n&quot;
+
+  .text
+main:
+  la $a0, o_str_ask_input
+  li $v0, 4
+</pre>
+<p>Merci Gego/XAREN!</p>
+<p>J'ai rencontré comme erreur avec Syntastic, mon validateur de syntaxe. Il se met en folie. Afin de cacher les messages d'erreur aggressives j'ai décidé de désactiver la validation de syntaxe jusqu'à ce que j'en ai besoin.</p>
+<p>source: <a class="reference external" href="https://stackoverflow.com/questions/20030603/vim-syntastic-how-to-disable-the-checker">https://stackoverflow.com/questions/20030603/vim-syntastic-how-to-disable-the-checker</a></p>
+<dl class="docutils">
+<dt>dans vimrc::</dt>
+<dd>let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes':   [],'passive_filetypes': []  }
+noremap &lt;C-w&gt;e :SyntasticCheck&lt;CR&gt;
+noremap &lt;C-w&gt;f :SyntasticToggleMode&lt;CR&gt;</dd>
+</dl>
+<p>J'ai aussi découvert que Alt+Backspace agit comme esc, ce sera utile pour mes laboratoires ou je ne peux pas mettre capslock à &lt;esc&gt;.</p>
+</div>
+
+    </div>
+  </article>
+  <hr>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function() {
+      this.page.url = 'https://nocaoper.github.io/932_Winter2019/mips-premier-contact.html';
+      this.page.identifier = 'mips-premier-contact';
+    };
+    (function() {
+      var d = document;
+      var s = d.createElement('script');
+      s.src = '//winter2019-hiver2019.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript class="text-muted">
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+  </noscript>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://nocaoper.github.io/932_Winter2019/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://nocaoper.github.io/932_Winter2019/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://nocaoper.github.io/932_Winter2019/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="https://nocaoper.github.io/932_Winter2019/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+</body>
+
+</html>
