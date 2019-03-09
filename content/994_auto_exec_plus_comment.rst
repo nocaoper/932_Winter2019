@@ -15,12 +15,15 @@ But exécuter mips 1 touche
 ##############################
 
 * :call ToMips()<br/>
+
   Appel manuel de :call ToMips() afin de faire coexister les raccourcis avec d'autre types de fichiers
 
 * F7<br/>
+
   Raccourci d'exécution
 
 * Ligne pour commentaire<br/>
+
   Vim utilise ; pour les commentaires des fichiers sous ".asm".
   Or, en mips # doit être utilisé.
   Afin de bénéficier de cette ligne vous devez utiliser le plugin tcomment
@@ -44,6 +47,3 @@ Dans .vimrc
     call tcomment#DefineType('asm', '# %s')
   endfunction
 
-.. |br| raw:: html
-
-  <br/>
