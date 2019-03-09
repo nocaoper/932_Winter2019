@@ -99,7 +99,7 @@ function ToMips()
   :imap &lt;F7&gt; &lt;Esc&gt;:call MipsMainThenQuit()&lt;cr&gt;
   :nmap &lt;F7&gt; :call MipsMainThenQuit()&lt;cr&gt;
   &quot;asm mips uses # as comment (use this line only if you have tcomment plugin)
-  call tcomment#DefineType('asm', '# %s')
+  call tcomment#type#Define('asm', '#%s')
 endfunction
 </pre>
 </div>

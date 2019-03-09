@@ -44,6 +44,6 @@ Dans .vimrc
     :imap <F7> <Esc>:call MipsMainThenQuit()<cr>
     :nmap <F7> :call MipsMainThenQuit()<cr>
     "asm mips uses # as comment (use this line only if you have tcomment plugin)
-    call tcomment#DefineType('asm', '# %s')
+    call tcomment#type#Define('asm', '#%s')
   endfunction
 
