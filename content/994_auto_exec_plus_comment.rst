@@ -14,15 +14,15 @@ Mips install partie 2
 But exécuter mips 1 touche
 ##############################
 
-* :call ToMips()<br/>
+* :call ToMips()
 
   Appel manuel de :call ToMips() afin de faire coexister les raccourcis avec d'autre types de fichiers
 
-* F7<br/>
+* F7
 
   Raccourci d'exécution
 
-* Ligne pour commentaire<br/>
+* Ligne pour commentaire
 
   Vim utilise ; pour les commentaires des fichiers sous ".asm".
   Or, en mips # doit être utilisé.
